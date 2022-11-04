@@ -12,16 +12,21 @@ const RecipesClass = {
     return response;
   },
 
+  // eslint-disable-next-line consistent-return
   fetchById: async (id) => {
-    try{
+    try {
       const response = await Recipes.findById(id);
       return response;
-    }catch(err){
-    }
+      // eslint-disable-next-line no-empty
+    } catch (err) {}
   },
 
   fetchByIdAndUpdate: async (id, recipesDetail) => {
-    const response = await Recipes.findByIdAndUpdate(id, { $set: recipesDetail }, { new: true });
+    const response = await Recipes.findByIdAndUpdate(
+      id,
+      { $set: recipesDetail },
+      { new: true },
+    );
     return response;
   },
 
